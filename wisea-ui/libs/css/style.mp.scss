@@ -1,0 +1,33 @@
+/* start--微信小程序编译后页面有组件名的元素，特别处理--start */
+/* #ifdef MP-WEIXIN */
+w-td, w-th {
+	flex: 1;
+	align-self: stretch;
+}
+
+.w-td {
+	height: 100%;
+}
+
+w-icon {
+	display: inline-flex;
+	align-items: center;
+}
+
+// 各家小程序宫格组件外层设置为100%，避免受到父元素display: flex;的影响
+w-grid {
+	width: 100%;
+	flex: 0 0 100%;
+}
+
+// 避免小程序线条组件因为父组件display: flex;而失效
+w-line {
+	flex: 1;
+}
+
+w-switch {
+	display: inline-flex;
+	align-items: center;
+}
+/* #endif */
+/* end-微信小程序编译后页面有组件名的元素，特别处理--end */

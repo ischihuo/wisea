@@ -1,0 +1,86 @@
+/* #ifndef APP-NVUE */
+view,
+text {
+	box-sizing: border-box;
+}
+/* #endif */
+
+/* start--演示页面使用的统一样式--start */
+.w-demo {
+	padding: 50rpx 40rpx;
+}
+
+.w-demo-wrap {
+	border-width: 1px;
+	border-color: #ddd;
+	border-style: dashed;
+	background-color: rgb(250, 250, 250);
+	padding: 40rpx 20rpx;
+	border-radius: 6px;
+}
+
+.w-demo-area {
+	text-align: center;
+}
+
+.w-no-demo-here {
+	color: $w-tips-color;
+	font-size: 26rpx;
+}
+
+.w-demo-result-line {
+	border-width: 1px;
+	border-color: #ddd;
+	border-style: dashed;
+	padding: 10rpx 40rpx;
+	margin-top: 30rpx;
+	border-radius: 5px;
+	background-color: rgb(240, 240, 240);
+	color: $w-content-color;
+	font-size: 32rpx;
+	/* #ifndef APP-NVUE */
+	word-break: break-word;
+	display: inline-block;
+	/* #endif */
+	text-align: left;
+	
+}
+
+.w-demo-title,
+.w-config-title {
+	text-align: center;
+	font-size: 32rpx;
+	font-weight: bold;
+	margin-bottom: 40rpx;
+}
+
+.w-config-item {
+	margin-top: 50rpx;
+}
+
+.w-config-title {
+	margin-top: 40rpx;
+	padding-bottom: 10rpx;
+}
+
+.w-item-title {
+	position: relative;
+	font-size: 28rpx;
+	padding-left: 8px;
+	line-height: 1;
+	margin-bottom: 22rpx;
+}
+
+.w-item-title:after {
+	position: absolute;
+	width: 4px;
+	top: -1px;
+	height: 16px;
+	/* #ifndef APP-NVUE */
+	content: '';
+	/* #endif */
+	left: 0;
+	border-radius: 10px;
+	background-color: $w-content-color;
+}
+/* end--演示页面使用的统一样式--end */

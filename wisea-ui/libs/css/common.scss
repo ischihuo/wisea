@@ -1,0 +1,173 @@
+.w-relative,
+.w-rela {
+	position: relative;
+}
+
+.w-absolute,
+.w-abso {
+	position: absolute;
+}
+
+// nvue不能用标签命名样式，不能放在微信组件中，否则微信开发工具会报警告，无法使用标签名当做选择器
+/* #ifndef APP-NVUE */
+image {
+	display: inline-block;
+	// 解决图片加载时可能会瞬间变形的问题
+	will-change: transform;
+}
+
+// 在weex，也即nvue中，所有元素默认为border-box
+view,
+text {
+	box-sizing: border-box;
+}
+/* #endif */
+
+.w-font-xs {
+	font-size: 22rpx;
+}
+
+.w-font-sm {
+	font-size: 26rpx;
+}
+
+.w-font-md {
+	font-size: 28rpx;
+}
+
+.w-font-lg {
+	font-size: 30rpx;
+}
+
+.w-font-xl {
+	font-size: 34rpx;
+}
+
+.w-flex {
+	/* #ifndef APP-NVUE */
+	display: flex;
+	/* #endif */
+	flex-direction: row;
+	align-items: center;
+}
+
+.w-flex-wrap {
+	flex-wrap: wrap;
+}
+
+.w-flex-nowrap {
+	flex-wrap: nowrap;
+}
+
+.w-col-center {
+	align-items: center;
+}
+
+.w-col-top {
+	align-items: flex-start;
+}
+
+.w-col-bottom {
+	align-items: flex-end;
+}
+
+.w-row-center {
+	justify-content: center;
+}
+
+.w-row-left {
+	justify-content: flex-start;
+}
+
+.w-row-right {
+	justify-content: flex-end;
+}
+
+.w-row-between {
+	justify-content: space-between;
+}
+
+.w-row-around {
+	justify-content: space-around;
+}
+
+.w-text-left {
+	text-align: left;
+}
+
+.w-text-center {
+	text-align: center;
+}
+
+.w-text-right {
+	text-align: right;
+}
+
+.w-flex-col {
+	/* #ifndef APP-NVUE */
+	display: flex;
+	/* #endif */
+	flex-direction: column;
+}
+
+// 定义flex等分
+@for $i from 0 through 12 {
+	.w-flex-#{$i} {
+		flex: $i;
+	}
+}
+
+// 定义字体(px)单位，小于20都为px单位字体
+@for $i from 9 to 20 {
+	.w-font-#{$i} {
+		font-size: $i + px;
+	}
+}
+
+// 定义字体(rpx)单位，大于或等于20的都为rpx单位字体
+@for $i from 20 through 40 {
+	.w-font-#{$i} {
+		font-size: $i + rpx;
+	}
+}
+
+// 定义内外边距，历遍1-80
+@for $i from 0 through 80 {
+	// 只要双数和能被5除尽的数
+	@if $i % 2 == 0 or $i % 5 == 0 {
+		// 得出：w-margin-30或者w-m-30
+		.w-margin-#{$i}, .w-m-#{$i} {
+			margin: $i + rpx!important;
+		}
+		
+		// 得出：w-padding-30或者w-p-30
+		.w-padding-#{$i}, .w-p-#{$i} {
+			padding: $i + rpx!important;
+		}
+		
+		@each $short, $long in l left, t top, r right, b bottom {
+			// 缩写版，结果如： w-m-l-30
+			// 定义外边距
+			.w-m-#{$short}-#{$i} {
+				margin-#{$long}: $i + rpx!important;
+			}
+			
+			// 定义内边距
+			.w-p-#{$short}-#{$i} {
+				padding-#{$long}: $i + rpx!important;
+			}
+			
+			// 完整版，结果如：w-margin-left-30
+			// 定义外边距
+			.w-margin-#{$long}-#{$i} {
+				margin-#{$long}: $i + rpx!important;
+			}
+			
+			// 定义内边距
+			.w-padding-#{$long}-#{$i} {
+				padding-#{$long}: $i + rpx!important;
+			}
+		}
+	}
+}
+
